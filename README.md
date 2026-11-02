@@ -2,14 +2,7 @@
 
 CDジュエルケース用の画像をブラウザ内で調整し、PNGのZIP出力とA4・2ページPDF出力ができる静的Webアプリです。
 
-## GitHub Pagesへの公開方法
 
-1. GitHubで新しいリポジトリを作成します。
-2. このZIPを解凍し、`index.html` と `README.md` をリポジトリの一番上の階層にアップロードします。
-3. リポジトリの **Settings → Pages** を開きます。
-4. **Build and deployment** の **Deploy from a branch** を選びます。
-5. Branchを `main`、Folderを `/ (root)` にして **Save** を押します。
-6. 数分待つと公開URLが表示されます。
 
 ## 仕様
 
