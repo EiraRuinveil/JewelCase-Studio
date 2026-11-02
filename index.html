@@ -33,22 +33,43 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .tabs button.active{background:#202630}
 .stage{min-height:450px;background:linear-gradient(135deg,#e7e9ec,#f8f9fa);border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:25px;overflow:hidden}
 .mock-wrap{width:min(100%,720px);display:flex;justify-content:center;align-items:center}
-.case{position:relative;width:min(100%,640px);aspect-ratio: 10 / 8.25;filter:drop-shadow(0 18px 18px #10182025);perspective:1000px}
-.case-front,.case-back{position:absolute;inset:3% 5%;border-radius:9px;background:linear-gradient(145deg,#ffffffa8,#dce2e866);border:2px solid #aeb8c2;box-shadow:inset 0 0 0 1px #ffffffb8,inset 0 0 18px #ffffff8a;overflow:hidden}
-.case-front{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:2.2%}
-.case-front:before,.case-back:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(115deg,#ffffff70 0%,transparent 23%,#ffffff20 48%,transparent 70%,#ffffff55 100%);z-index:5}
-.case-front:after,.case-back:after{content:"";position:absolute;inset:7px;border:1px solid #ffffffa8;border-radius:5px;pointer-events:none;z-index:6}
-.front-book{position:relative;min-width:0;overflow:hidden;border:1px solid #aeb8c288;box-shadow:0 1px 5px #1b263022}
-.front-book img{width:100%;height:100%;object-fit:fill;display:block}
-.disc-well{position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#d9dfe3aa,#f8fafb99);border-left:1px solid #ffffffa8}
-.disc-well:before{content:"";position:absolute;inset:4%;border-radius:50%;border:1px solid #aab4bd88;box-shadow:inset 0 0 12px #ffffffaa}
-.disc-img{width:91%;aspect-ratio:1;border-radius:50%;object-fit:contain;filter:drop-shadow(0 2px 3px #20263033)}
-.tray-hub{position:absolute;width:16%;aspect-ratio:1;border-radius:50%;border:1px solid #ffffffb8;box-shadow:inset 0 0 0 3px #c7cdd288,0 0 8px #fff;pointer-events:none}
-.case-back{padding:2.2%;display:grid;grid-template-columns:1fr 1fr;gap:2%;align-items:stretch}
-.back-left,.back-right{position:relative;min-width:0;overflow:hidden;border:1px solid #aeb8c288;box-shadow:0 1px 5px #1b263022;background:#fff}
-.back-left img,.back-right img{width:100%;height:100%;object-fit:fill;display:block}
-.back-left{display:flex;align-items:stretch}
-.spine-hint{position:absolute;bottom:5px;left:5px;font-size:9px;color:#68717d;background:#ffffffc9;padding:2px 4px;border-radius:3px}
+
+.mock-wrap{width:100%;display:flex;align-items:center;justify-content:center;min-height:480px;overflow:hidden}
+.scene3d{width:min(100%,650px);height:500px;display:flex;align-items:center;justify-content:center;perspective:1250px;touch-action:pan-y;cursor:grab;user-select:none}
+.scene3d.dragging{cursor:grabbing}
+.model3d{position:relative;width:min(76vw,500px);height:min(76vw,500px);max-width:500px;max-height:500px;transform-style:preserve-3d;will-change:transform}
+.case-base,.case-lid{position:absolute;inset:0;width:100%;height:100%;transform-style:preserve-3d}
+.case-base{transform:translateZ(0px)}
+.case-lid{transform-origin:0% 50%;transform:translateZ(9px) rotateY(var(--lid-angle,0deg));transition:transform .55s cubic-bezier(.2,.75,.25,1)}
+.face{position:absolute;inset:0;border-radius:9px;overflow:hidden;backface-visibility:hidden}
+.face img{width:100%;height:100%;display:block;object-fit:contain}
+.lid-front{transform:translateZ(5px);background:linear-gradient(135deg,#ffffffa8,#dce2e866);border:2px solid #aeb8c2;box-shadow:inset 0 0 0 1px #ffffffb8}
+.lid-inner{transform:rotateY(180deg) translateZ(5px);background:linear-gradient(135deg,#ffffff70,#dce2e866);border:2px solid #aeb8c2;display:flex;align-items:center;justify-content:center}
+.lid-inner img{object-fit:contain;padding:2.5%}
+.base-inner{transform:translateZ(5px);background:linear-gradient(145deg,#e5e9ec,#f9fafb);border:2px solid #aeb8c2;box-shadow:inset 0 0 0 1px #ffffffb8}
+.base-outer{transform:rotateY(180deg) translateZ(5px);background:#dce1e5;border:2px solid #aeb8c2}
+.tray-print{position:absolute;inset:3%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tray-print img{width:100%;height:100%;object-fit:contain;opacity:.94}
+.tray-rim{position:absolute;inset:2%;border:2px solid #ffffffb8;border-radius:5px;box-shadow:inset 0 0 14px #ffffffa0;pointer-events:none}
+.tray-disc-zone{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tray-disc-zone:before{content:"";position:absolute;width:47%;aspect-ratio:1;border-radius:50%;border:2px solid #b8c1c988;box-shadow:inset 0 0 16px #ffffffaa,0 0 12px #ffffff80}
+.tray-disc{position:relative;width:45%;aspect-ratio:1;border-radius:50%;object-fit:contain;filter:drop-shadow(0 3px 4px #1c263044);transition:opacity .2s,transform .3s}
+.tray-hub{position:absolute;width:7%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#f9fbfc 0 35%,#c6cdd3 38% 58%,#eef1f3 62%);border:1px solid #aeb8c2;box-shadow:0 1px 6px #56616b66;z-index:3}
+.case-base:after,.case-lid:after{content:"";position:absolute;inset:0;border-radius:9px;border:1px solid #ffffffa8;pointer-events:none;transform:translateZ(7px)}
+.base-side{position:absolute;background:linear-gradient(#cbd2d8,#f7f9fa,#b8c1c9);border:1px solid #aeb8c2;transform-style:preserve-3d}
+.side-top,.side-bottom{height:10px;left:8px;right:8px}
+.side-top{top:-5px;transform:rotateX(90deg);transform-origin:top}
+.side-bottom{bottom:-5px;transform:rotateX(-90deg);transform-origin:bottom}
+.side-left,.side-right{width:10px;top:8px;bottom:8px}
+.side-left{left:-5px;transform:rotateY(-90deg);transform-origin:left}
+.side-right{right:-5px;transform:rotateY(90deg);transform-origin:right}
+.scene-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.scene-controls label{display:flex;align-items:center;gap:7px;margin:0;font-size:12px}
+.scene-controls input[type=range]{width:130px}
+.scene-controls button{padding:8px 11px}
+.scene-note{font-size:11px;color:var(--muted);margin:0 0 10px}
+.detail-stage{background:#f7f8fa;border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;justify-content:center;align-items:center;min-height:450px}
+.detail-stage img{max-width:100%;max-height:560px;object-fit:contain;box-shadow:0 3px 14px #20263020}
 .empty{color:#7b8490;text-align:center;font-size:13px;max-width:340px;line-height:1.6}
 .preview-caption{text-align:center;color:var(--muted);font-size:12px;margin-top:12px}
 .detail-stage{background:#f7f8fa;border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;justify-content:center;align-items:center;min-height:450px}
@@ -75,6 +96,7 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
     <div class="field"><label for="fontColor">文字色</label><input id="fontColor" type="color" value="#111111" style="height:39px;width:100%"></div>
   </div>
   <div class="field"><label for="fontFamily">フォント</label><select id="fontFamily"><option value="Arial, sans-serif">Arial</option><option value="Georgia, serif">Georgia</option><option value="'Times New Roman', serif">Times New Roman</option><option value="sans-serif">ゴシック</option><option value="serif">明朝</option></select></div>
+  <div class="field"><label for="fontFile">フォントファイルを読み込む (TTF / OTF / WOFF / WOFF2)</label><input id="fontFile" type="file" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2"><p class="hint">読み込んだフォントは背表紙の文字とプレビュー・書き出しに使用されます。</p></div>
   <hr>
   <h3>画像をアップロード</h3>
   <div class="filebox"><label for="front">フロントジャケット (1435 × 1435 px)</label><input id="front" type="file" accept="image/png,image/jpeg"></div>
@@ -97,8 +119,15 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
     <button class="secondary" data-view="inlayReverse">インレイ裏</button>
     <button class="secondary" data-view="disc">ディスク</button>
   </div>
+  <div class="scene-controls" id="sceneControls">
+    <button id="openToggle" class="secondary" type="button">ケースを開く</button>
+    <label>開き具合 <input id="openAngle" type="range" min="0" max="180" value="0"></label>
+    <button id="discToggle" class="secondary" type="button">ディスクを外す</button>
+    <button id="resetView" class="secondary" type="button">角度リセット</button>
+  </div>
+  <p class="scene-note" id="sceneNote">ケースをドラッグすると回転します。スライダーで開閉、ディスクの着脱を切り替えられます。</p>
   <div id="stage" class="stage">
-    <div class="empty">画像をアップロードすると、透明なCDジュエルケースに収納した完成イメージがここに表示されます。</div>
+    <div class="empty">画像をアップロードすると、透明なCDジュエルケースの3Dプレビューが表示されます。</div>
   </div>
   <div class="preview-caption" id="caption">透明ケースの表面モックアップ</div>
 </section>
@@ -139,31 +168,87 @@ async function refresh(){
   setStatus("プレビューを更新しました。ZIPにはアップロード済みの画像のみ含まれます。");
  }catch(e){setStatus("エラー: "+e.message)}
 }
-function showView(view){
+
+let modelYaw=-18,modelPitch=-10,caseOpen=0,discRemoved=false,dragState=null;
+function updateModelTransform(){
+ const model=document.querySelector(".model3d");
+ if(model)model.style.transform=`rotateX(${modelPitch}deg) rotateY(${modelYaw}deg)`;
+ const lid=document.querySelector(".case-lid");
+ if(lid)lid.style.setProperty("--lid-angle",`${-caseOpen}deg`);
+ const disc=document.querySelector(".tray-disc");
+ if(disc)disc.style.opacity=discRemoved?"0":"1";
+ const hub=document.querySelector(".tray-hub");
+ if(hub)hub.style.opacity=discRemoved?"1":".35";
+ $("openToggle").textContent=caseOpen>1?"ケースを閉じる":"ケースを開く";
+ $("openAngle").value=caseOpen;
+ $("discToggle").textContent=discRemoved?"ディスクを戻す":"ディスクを外す";
+}
+function build3D(){
+ const stage=$("stage");stage.className="stage";stage.innerHTML="";
+ const wrap=document.createElement("div");wrap.className="mock-wrap";
+ wrap.innerHTML=`<div class="scene3d" id="scene3d">
+  <div class="model3d">
+   <div class="case-base">
+    <div class="face base-inner">
+     <div class="tray-print">${rendered.inlayFront?`<img src="${imageURL("inlayFront")}" alt="">`:""}</div>
+     <div class="tray-disc-zone">${rendered.disc?`<img class="tray-disc" src="${imageURL("disc")}" alt="CD disc">`:""}<div class="tray-hub"></div></div>
+     <div class="tray-rim"></div>
+    </div>
+    <div class="face base-outer">${rendered.back?`<img src="${imageURL("back")}" alt="Back jacket">`:""}</div>
+    <div class="base-side side-top"></div><div class="base-side side-bottom"></div><div class="base-side side-left"></div><div class="base-side side-right"></div>
+   </div>
+   <div class="case-lid">
+    <div class="face lid-front">${rendered.front?`<img src="${imageURL("front")}" alt="Front jacket">`:""}</div>
+    <div class="face lid-inner">${rendered.inlayReverse?`<img src="${imageURL("inlayReverse")}" alt="Inside artwork">`:""}</div>
+   </div>
+  </div></div>`;
+ stage.appendChild(wrap);
+ const scene=$("scene3d");
+ scene.addEventListener("pointerdown",e=>{if(e.button!==0)return;dragState={x:e.clientX,y:e.clientY,yaw:modelYaw,pitch:modelPitch};scene.classList.add("dragging");scene.setPointerCapture(e.pointerId)});
+ scene.addEventListener("pointermove",e=>{if(!dragState)return;modelYaw=dragState.yaw+(e.clientX-dragState.x)*.55;modelPitch=Math.max(-75,Math.min(75,dragState.pitch-(e.clientY-dragState.y)*.45));updateModelTransform()});
+ const stop=()=>{dragState=null;scene.classList.remove("dragging")};
+ scene.addEventListener("pointerup",stop);scene.addEventListener("pointercancel",stop);
+ updateModelTransform();
+}
+function showView(view,resetModel=false){
  active=view;document.querySelectorAll("#tabs button").forEach(b=>{b.classList.toggle("active",b.dataset.view===view);b.classList.toggle("secondary",b.dataset.view!==view)});
  const stage=$("stage");stage.innerHTML="";
  if(view==="mockFront"||view==="mockBack"){
-  const wrap=document.createElement("div");wrap.className="mock-wrap";
-  const c=document.createElement("div");c.className="case";
-  if(view==="mockFront"){
-   c.innerHTML=`<div class="case-front"><div class="front-book">${rendered.front?'<img src="'+imageURL("front")+'">':'<div class="empty">フロントジャケット未設定</div>'}</div><div class="disc-well">${rendered.disc?'<img class="disc-img" src="'+imageURL("disc")+'">':'<div class="empty">ディスク画像未設定</div>'}<div class="tray-hub"></div></div></div>`;
-   $("caption").textContent="透明ジュエルケースの表面。左にフロントジャケット、右にCD盤面を配置";
-  }else{
-   c.innerHTML=`<div class="case-back"><div class="back-left">${rendered.inlayFront?'<img src="'+imageURL("inlayFront")+'">':'<div class="empty">バックインレイ表未設定</div>'}</div><div class="back-right">${rendered.back?'<img src="'+imageURL("back")+'">':'<div class="empty">バックジャケット未設定</div>'}</div></div>`;
-   $("caption").textContent="透明ジュエルケースの裏面。バックインレイとバックジャケットを配置";
+  if(resetModel){
+   if(view==="mockFront"){modelYaw=-18;modelPitch=-10;caseOpen=0;}
+   else{modelYaw=162;modelPitch=-10;caseOpen=0;}
   }
-  wrap.appendChild(c);stage.appendChild(wrap);
+  $("caption").textContent=view==="mockFront"?"ジュエルケース3Dプレビュー。ドラッグで回転できます。":"ケース背面。ドラッグで角度を自由に調整できます。";
+  build3D();
  }else if(rendered[view]){
-  const img=document.createElement("img");img.src=imageURL(view);img.alt=names[view];stage.className="detail-stage";stage.appendChild(img);$("caption").textContent=names[view]+" / "+dims[view].join(" × ")+" px";
+  const img=document.createElement("img");img.src=imageURL(view);img.alt=names[view];stage.className="detail-stage";img.style.width="auto";img.style.height="auto";img.style.maxWidth="100%";img.style.maxHeight="560px";stage.appendChild(img);$("caption").textContent=names[view]+" / "+dims[view].join(" × ")+" px";
  }else{
   stage.className="stage";stage.innerHTML='<div class="empty">この画像はまだアップロードされていません。</div>';$("caption").textContent="個別画像プレビュー";
  }
  if(view.startsWith("mock"))stage.className="stage";
+ $("sceneControls").style.display=view.startsWith("mock")?"flex":"none";
+ $("sceneNote").style.display=view.startsWith("mock")?"block":"none";
 }
-document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+
+document.querySelectorAll("#tabs button").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view,true)));
+showView("mockFront",true);
 Object.keys(dims).forEach(k=>$(k).addEventListener("change",async e=>{if(!e.target.files[0])return;try{images[k]=await loadImage(e.target.files[0]);await refresh()}catch(err){setStatus("画像を読み込めませんでした。")}}));
 ["artist","album","catalog","fontSize","fontColor","fontFamily"].forEach(k=>$(k).addEventListener("input",()=>{if(images.inlayFront)refresh()}));
-$("reset").addEventListener("click",()=>{Object.keys(dims).forEach(k=>{delete images[k];delete rendered[k];$(k).value=""});["artist","album","catalog"].forEach(k=>$(k).value="");active="mockFront";showView(active);$("download").disabled=true;setStatus("リセットしました。")});
+$("fontFile").addEventListener("change",async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{
+  const family="UserFont_"+Date.now();
+  const face=new FontFace(family,`url(${URL.createObjectURL(file)})`);
+  await face.load();document.fonts.add(face);
+  const opt=document.createElement("option");opt.value=`"${family}"`;opt.textContent=file.name; $("fontFamily").appendChild(opt);$("fontFamily").value=opt.value;
+  if(images.inlayFront)await refresh();setStatus("フォントを読み込みました: "+file.name);
+ }catch(err){setStatus("フォントを読み込めませんでした。別のフォントファイルを試してください。")}
+});
+$("openToggle").addEventListener("click",()=>{caseOpen=caseOpen>1?0:180;updateModelTransform()});
+$("openAngle").addEventListener("input",e=>{caseOpen=Number(e.target.value);updateModelTransform()});
+$("discToggle").addEventListener("click",()=>{discRemoved=!discRemoved;updateModelTransform()});
+$("resetView").addEventListener("click",()=>{modelYaw=-18;modelPitch=-10;caseOpen=0;discRemoved=false;updateModelTransform()});
+$("reset").addEventListener("click",()=>{Object.keys(dims).forEach(k=>{delete images[k];delete rendered[k];$(k).value=""});["artist","album","catalog"].forEach(k=>$(k).value="");$("fontFile").value="";discRemoved=false;active="mockFront";showView(active);$("download").disabled=true;$("pdfDownload").disabled=true;setStatus("リセットしました。")});
 function crc32(data){let c=0xffffffff;for(let i=0;i<data.length;i++){c^=data[i];for(let j=0;j<8;j++)c=(c>>>1)^((c&1)?0xedb88320:0)}return(c^0xffffffff)>>>0}
 function u16(n){return [n&255,(n>>>8)&255]} function u32(n){return [n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255]}
 function makeZip(files){
