@@ -4,7 +4,7 @@ CDジュエルケース用アートワークを読み込み、ケースをプレ
 
 ## 起動方法
 
-`cd-mockup-studio.html` をブラウザーで開いてください。PDF保存にはjsPDFをCDNから読み込むため、PDF出力時はインターネット接続が必要です。画像処理はブラウザー内で行われます。
+`cd-mockup-studio.html` をブラウザーで開くか`https://eiraruinveil.github.io/JewelCase-Studio/`を開いてください。PDF保存にはjsPDFをCDNから読み込むため、PDF出力時はインターネット接続が必要です。画像処理はブラウザー内で行われます。
 
 ## CD cover とディスク
 
