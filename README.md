@@ -4,7 +4,7 @@ CDジュエルケース用アートワークを読み込み、ケースをプレ
 
 ## 起動方法
 
-`cd-mockup-studio.html` をブラウザーで開くか`https://eiraruinveil.github.io/JewelCase-Studio/`を開いてください。PDF保存にはjsPDFをCDNから読み込むため、PDF出力時はインターネット接続が必要です。画像処理はブラウザー内で行われます。
+(https://eiraruinveil.github.io/JewelCase-Studio/)を開いてください。PDF保存にはjsPDFをCDNから読み込むため、PDF出力時はインターネット接続が必要です。画像処理はブラウザー内で行われます。
 
 ## CD cover とディスク
 
@@ -21,7 +21,7 @@ CDジュエルケース用アートワークを読み込み、ケースをプレ
 それぞれの部位に名前をつけたテンプレートがあります
 テスト印刷などにお使いください
 2ページジャケットでバックインレイ表裏あります
-`https://github.com/EiraRuinveil/JewelCase-Studio/blob/main/CD_Artwork_Project.json`
+(https://github.com/EiraRuinveil/JewelCase-Studio/blob/main/CD_Artwork_Project.json)
 
 
 - アーティスト名、アルバムタイトル、カタログ番号を入力できます。アーティスト名とタイトルはハイフンでつないで背表紙に表示します。
