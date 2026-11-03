@@ -22,7 +22,7 @@ CDジュエルケース用アートワークを読み込み、ケースをプレ
 それぞれの部位に名前をつけたテンプレートがあります
 テスト印刷などにお使いください
 2ページジャケットでバックインレイ表裏あります
-[https://github.com/EiraRuinveil/JewelCase-Studio/blob/main/CD_Artwork_Project.json](url)
+[こちら](CD_Artwork_Project.json)
 
 
 - アーティスト名、アルバムタイトル、カタログ番号を入力できます。アーティスト名とタイトルはハイフンでつないで背表紙に表示します。
