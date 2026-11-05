@@ -16,9 +16,9 @@ CDジュエルケース用アートワークを読み込み、ケースをプレ
 
 [2ページジャケット・バックインレイ表裏](CD_Artwork_Project.json)
 
-[8ページブックレット・バックインレイ表裏](8%20page%20Booklet%20and%20Backinlay.json)
-
 [4ページブックレット・バックインレイ表裏](4%20page%20Booklet%20and%20Backinlay.json)
+
+[8ページブックレット・バックインレイ表裏](8%20page%20Booklet%20and%20Backinlay.json)
 
 ## CD cover とディスク
 
